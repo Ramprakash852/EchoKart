@@ -1,12 +1,13 @@
-# One-cart(MERN, Docker,Docker-compose, Nginx, Rabbitmq) Deployed on aws EC2
-# 🛒 One_Cart
+# EchoKart(MERN, Docker,Docker-compose, Nginx, Rabbitmq) Deployed on aws EC2
+# 🛒 EchoKart
 
 ### Speech-Powered E-Commerce Platform
 
-A modern, full-featured e-commerce website with hands-free navigation powered by voice commands. One_Cart demonstrates the future of accessible online shopping by integrating the Web Speech API to create a seamless, inclusive user experience.
+A modern, full-featured e-commerce website with hands-free navigation powered by voice commands. EchoKart demonstrates the future of accessible online shopping by integrating the Web Speech API to create a seamless, inclusive user experience.
 
-[![GitHub Stars](https://img.shields.io/github/stars/labhanshu03/One_Cart?style=social)](https://github.com/labhanshu03/One_Cart)
-[![GitHub Forks](https://img.shields.io/github/forks/labhanshu03/One_Cart?style=social)](https://github.com/labhanshu03/One_Cart/fork)
+[![GitHub Stars](https://img.shields.io/github/stars/Ramprakash852/EchoKart?style=social)](https://github.com/Ramprakash852/EchoKart)
+[![GitHub Forks](https://img.shields.io/github/forks/Ramprakash852/EchoKart?style=social)](https://github.com/Ramprakash852/EchoKart/fork)
+
 
 ---
 
@@ -56,7 +57,7 @@ Get started with these voice commands:
 ## 🚀 Getting Started
 ## 🐳 Docker Setup (Recommended)
 
-One_Cart is fully **Dockerized**, allowing you to run the entire application (Frontend, Backend, Admin Panel, and Database) with a single command.
+EchoKart is fully **Dockerized**, allowing you to run the entire application (Frontend, Backend, Admin Panel, and Database) with a single command.
 
 ---
 
@@ -77,8 +78,8 @@ docker compose version
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/labhanshu03/One_Cart.git
-   cd One_Cart
+   git clone https://github.com/Ramprakash852/EchoKart.git
+   cd EchoKart
    ```
 
 
@@ -160,7 +161,7 @@ docker compose version
 ## 📁 Project Structure
 
 ```
-One_Cart/
+EchoKart/
 ├── frontend/                 # Frontend application
 │   ├── src/
 │   │   ├── components/    # Reusable components
@@ -222,8 +223,8 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 **Labhanshu**
 
-- GitHub: [@labhanshu03](https://github.com/labhanshu03)
-- Project Link: [https://github.com/labhanshu03/One_Cart](https://github.com/labhanshu03/One_Cart)
+- GitHub: [@Ramprakash852](https://github.com/Ramprakash852)
+- Project Link: [https://github.com/Ramprakash852/EchoKart](https://github.com/Ramprakash852/EchoKart)
 
 ---
 
@@ -238,7 +239,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## 📞 Support
 
 If you have any questions or need help, please:
-- Open an [issue](https://github.com/labhanshu03/One_Cart/issues)
+- Open an [issue](https://github.com/Ramprakash852/EchoKart/issues)
 - Reach out via GitHub discussions
 - Contact the maintainer
 
