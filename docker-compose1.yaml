@@ -1,15 +1,20 @@
 services:
+
+
   rabbitmq:
-    image: rabbitmq:3-management
-    container_name: rabbitmq
-    networks:
-      - echocart
-    environment:
-      - RABBITMQ_DEFAULT_USER=guest
-      - RABBITMQ_DEFAULT_PASS=guest
+   image: rabbitmq:3-management
+   container_name: rabbitmq
+   ports:
+    - "15672:15672" 
+   networks:
+    - echocart
+   environment:
+    - RABBITMQ_DEFAULT_USER=guest
+    - RABBITMQ_DEFAULT_PASS=guest
 
   email-worker:
-    image: echo_cart_email-worker
+    build: ./backend
+    image: echocart-email-worker
     container_name: email-worker
     command: node workers/email.worker.js
     env_file:
@@ -19,44 +24,52 @@ services:
     networks:
       - echocart
 
+
+  
   backend:
-    image: echo_cart-backend
-    container_name: backend
-    networks:
-      - echocart
-    depends_on:
-      - rabbitmq
+   build: ./backend
+   image: echocart-backend
+   container_name: backend
+   ports:
+    - "8000:8000"
+   networks:
+    - echocart
+   depends_on:
+    - rabbitmq
+  
 
   frontend:
-    image: echo_cart-frontend
-    container_name: frontend
-    depends_on:
-      - backend
-    networks:
-      - echocart
+   build: ./frontend
+   image: echocart-frontend
+   container_name: frontend
+   depends_on:
+    - backend
+   networks:
+    - echocart
 
   admin:
-    image: echo_cart-admin
-    container_name: admin
-    depends_on:
-      - backend
-    networks:
-      - echocart
-
+   build: ./admin
+   image: echocart-admin
+   container_name: admin
+   depends_on:
+    - backend
+   networks:
+    - echocart
+  
   nginx:
-    image: nginx:alpine
-    container_name: nginx
-    ports:
+   image: nginx:alpine
+   container_name: nginx
+   ports:
       - "80:80"
-    volumes:
+   volumes:
       - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
-    depends_on:
+   depends_on:
       - backend
       - frontend
       - admin
-    networks:
+   networks:
       - echocart
-
+   
 networks:
-  echocart:
-    driver: bridge
+ echocart:
+  driver: bridge
