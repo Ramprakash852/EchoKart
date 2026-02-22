@@ -7,13 +7,14 @@ services:
    ports:
     - "15672:15672" 
    networks:
-    - spokekart
+    - echocart
    environment:
     - RABBITMQ_DEFAULT_USER=guest
     - RABBITMQ_DEFAULT_PASS=guest
 
   email-worker:
-    build: ./backend    
+    build: ./backend
+    image: echocart-email-worker
     container_name: email-worker
     command: node workers/email.worker.js
     env_file:
@@ -21,36 +22,39 @@ services:
     depends_on:
       - rabbitmq
     networks:
-      - spokekart
+      - echocart
 
 
   
   backend:
    build: ./backend
+   image: echocart-backend
    container_name: backend
    ports:
     - "8000:8000"
    networks:
-    - spokekart
+    - echocart
    depends_on:
     - rabbitmq
   
 
   frontend:
    build: ./frontend
+   image: echocart-frontend
    container_name: frontend
    depends_on:
     - backend
    networks:
-    - spokekart
+    - echocart
 
   admin:
    build: ./admin
+   image: echocart-admin
    container_name: admin
    depends_on:
     - backend
    networks:
-    - spokekart
+    - echocart
   
   nginx:
    image: nginx:alpine
@@ -64,8 +68,8 @@ services:
       - frontend
       - admin
    networks:
-      - spokekart
+      - echocart
    
 networks:
- spokekart:
+ echocart:
   driver: bridge
