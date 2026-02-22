@@ -3,13 +3,13 @@ services:
     image: rabbitmq:3-management
     container_name: rabbitmq
     networks:
-      - onecart
+      - echocart
     environment:
       - RABBITMQ_DEFAULT_USER=guest
       - RABBITMQ_DEFAULT_PASS=guest
 
   email-worker:
-    image: one_cart_email-worker
+    image: echo_cart_email-worker
     container_name: email-worker
     command: node workers/email.worker.js
     env_file:
@@ -17,31 +17,31 @@ services:
     depends_on:
       - rabbitmq
     networks:
-      - onecart
+      - echocart
 
   backend:
-    image: one_cart-backend
+    image: echo_cart-backend
     container_name: backend
     networks:
-      - onecart
+      - echocart
     depends_on:
       - rabbitmq
 
   frontend:
-    image: one_cart-frontend
+    image: echo_cart-frontend
     container_name: frontend
     depends_on:
       - backend
     networks:
-      - onecart
+      - echocart
 
   admin:
-    image: one_cart-admin
+    image: echo_cart-admin
     container_name: admin
     depends_on:
       - backend
     networks:
-      - onecart
+      - echocart
 
   nginx:
     image: nginx:alpine
@@ -55,8 +55,8 @@ services:
       - frontend
       - admin
     networks:
-      - onecart
+      - echocart
 
 networks:
-  onecart:
+  echocart:
     driver: bridge
